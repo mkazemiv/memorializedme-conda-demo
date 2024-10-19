@@ -11,10 +11,10 @@ Follow the appropriate sections of these [instructions](https://docs.google.com/
 	In this example, I'm navigating to the `test` folder to clone the project:
 ```shell
 cd test
-git clone https://github.com/mkazemiv/super-duper-disco.git
-cd super-duper-disco
+git clone https://github.com/mkazemiv/memorializedme-conda-demo.git
+cd memorializedme-conda-demo
 ```
-3. Now, create a new Batch script (`.bat` extension) inside the `super-duper-disco` folder with the specifications below. You can write this script using any text editor.
+3. Now, create a new Batch script (`.bat` extension) inside the `memorializedme-conda-demo` folder with the specifications below. You can write this script using any text editor.
 
 	In this example, I'll be naming my script `chicken.bat`:
 ```
@@ -27,7 +27,7 @@ set APP_SECRET_KEY=boop
 set FLASK_APP=hello.py
 ```
 
-If you initially write and save the script somewhere else (using a text editor like Notepad, for example), make sure to move it into the `super-duper-disco` folder before proceeding.
+If you initially write and save the script somewhere else (using a text editor like Notepad, for example), make sure to move it into the `memorializedme-conda-demo` folder before proceeding.
 
 4. Write another Batch script for running the application. This script will need to be placed in a **different directory**.
 
@@ -39,7 +39,7 @@ REM Activate the conda environment
 call conda activate flask_env3_11_4
 
 REM Navigate to project directory (this may be different 
-cd test\super-duper-disco
+cd test\memorializedme-conda-demo
 
 REM Run the 'chicken.bat' script (replace with the actual script name if you chose a different name)
 call chicken.bat
@@ -53,9 +53,9 @@ set FLASK_DEBUG=1
 REM Run the Flask application
 flask run --host=0.0.0.0
 ```
-**NOTE**: When launching the app via Anaconda [(shown later in the instructions)](https://github.com/mkazemiv/super-duper-disco/#running-application), Anaconda uses your user home folder as the default directory. In this script, the line that says `cd test\super-duper-disco` **should navigate from *your specific user* folder directly to the *project* folder**. So, make sure to confirm that the path specified in this line of the script successfully changes directories as stated.
+**NOTE**: When launching the app via Anaconda [(shown later in the instructions)](https://github.com/mkazemiv/memorializedme-conda-demo/#running-application), Anaconda uses your user home folder as the default directory. In this script, the line that says `cd test\memorializedme-conda-demo` **should navigate from *your specific user* folder directly to the *project* folder**. So, make sure to confirm that the path specified in this line of the script successfully changes directories as stated.
 
-- Some clarification in case you're confused: In my case, for example, my user folder is `C:\Users\mkazemiv` and the `test` folder (where the project is) is located directly in my user directory, which makes navigation easy. So, from my user folder, I can simply run `cd test\super-duper-disco` and reach the project folder.
+- Some clarification in case you're confused: In my case, for example, my user folder is `C:\Users\mkazemiv` and the `test` folder (where the project is) is located directly in my user directory, which makes navigation easy. So, from my user folder, I can simply run `cd test\memorializedme-conda-demo` and reach the project folder.
 
 *If you're unsure about the path you're using for this line of the script and would like to test it*:
 - start a new CMD.exe prompt or Powershell window (I'm using a CMD.exe prompt here but the commands are exactly the same for Powershell)
@@ -88,7 +88,7 @@ As we use Supabase for the backend of our application, a properly configured Sup
 3. Click the "API" button to reach the API Settings page for your project.
 <img alt="api_settings" src="https://i.imgur.com/DvWFAGn.png">
 
-4. From this page, we need two items that will be copy-pasted into the `chicken.bat` script from [step 3 of the Environment Setup instructions](https://github.com/mkazemiv/super-duper-disco/#environment-setup): the *Project URL* and a *Project API key*.
+4. From this page, we need two items that will be copy-pasted into the `chicken.bat` script from [step 3 of the Environment Setup instructions](https://github.com/mkazemiv/memorializedme-conda-demo/#environment-setup): the *Project URL* and a *Project API key*.
 	
 - The Project URL is the first item from the top in the API Settings screen. Copy this link and paste it in place of the "YOUR_SUPABASE_URL" string from the script.
 ```
@@ -163,17 +163,17 @@ create table
 <img alt="tables_added" src="https://i.imgur.com/SoUSzKS.png">
 
 6. Now we need to set our site & redirect URLs. To do this, go to the Authentication page of your project:
-<img alt="auth" src="https://github.com/mkazemiv/super-duper-disco/assets/47222610/dcb289d6-f0e5-4467-90cd-32fcb190daf9">
+<img alt="auth" src="https://github.com/mkazemiv/memorializedme-conda-demo/assets/47222610/dcb289d6-f0e5-4467-90cd-32fcb190daf9">
 
 - Then, click the "URL Configuration" link on the menu that appears
-<img alt="url_config" src="https://github.com/mkazemiv/super-duper-disco/assets/47222610/3b98c149-6d77-4ade-ad8f-6ef861a814b7">
+<img alt="url_config" src="https://github.com/mkazemiv/memorializedme-conda-demo/assets/47222610/3b98c149-6d77-4ade-ad8f-6ef861a814b7">
 
 - On this page, you'll see an editable field labeled "Site URL". Edit this field to `http://localhost:5000/home`. This is the URL you'll be routed to after successful login/verification.
 - Then, in the "Redirect URLs" section located lower on the same page, click the green "Add URL" button and add `http://localhost:5000` as a redirect URL. This is the URL you'll be routed to after logging out of your account.
 
 7. Since we use a one-time password (OTP) for new account verification, the 'Confirm signup' email template needs to be edited to include the OTP that the user needs to verify their account.
 - While still on the Authentication page, go to the "Email Templates" subsection
-<img alt="email_template" src="https://github.com/mkazemiv/super-duper-disco/assets/47222610/c2f5e07c-c5a4-406b-ba0a-853a438e6fbc">
+<img alt="email_template" src="https://github.com/mkazemiv/memorializedme-conda-demo/assets/47222610/c2f5e07c-c5a4-406b-ba0a-853a438e6fbc">
 
 - Here, replace the existing "Message body" template with this HTML template:
 ```html
@@ -189,7 +189,7 @@ Click <a href="{{ .SiteURL }}">here</a> to return to the verification form.<br>
 # Running Application
 All basic setup is complete and you are ready to run the application on your local machine.
 
-1. Open the "Anaconda Navigator" app, which we installed [earlier](https://github.com/mkazemiv/super-duper-disco/#environment-setup)
+1. Open the "Anaconda Navigator" app, which we installed [earlier](https://github.com/mkazemiv/memorializedme-conda-demo/#environment-setup)
 2. From the Home page of this app, launch a CMD.exe or Powershell Prompt (makes no difference). This should open a window with a prompt very similar to
 ```
 (base) C:\Users\mkazemiv>
@@ -200,4 +200,4 @@ All basic setup is complete and you are ready to run the application on your loc
 ```
 (base) C:\Users\mkazemiv> start_project.bat
 ```
-- If the app starts on a port other than 5000, you should go back to [step 6 of Supabase Setup](https://github.com/mkazemiv/super-duper-disco/#supabase-setup) and change the port numbers in the URLs.
+- If the app starts on a port other than 5000, you should go back to [step 6 of Supabase Setup](https://github.com/mkazemiv/memorializedme-conda-demo/#supabase-setup) and change the port numbers in the URLs.
